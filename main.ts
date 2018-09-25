@@ -5,15 +5,18 @@ namespace infrared {
     const arr2 = [2550, 2550, 850, 850, 850, 1912, 850, 850, 850, 850, 850, 1912, 850, 850, 850, 1912, 850, 1912, 850, 54400, 2550, 2550, 850, 850, 850, 1912, 850, 850, 850, 850, 850, 1912, 850, 850, 850, 1912, 850, 1912, 850]
     //% blockId=on block="ON"
     export function on(): void {
-        for (let i = 0, r = 0; i <= arr.length - 1; i++) {
+        for (let i = 0, r = 0, time = 0; i <= arr.length - 1; i++) {
             // Generate flashing signal
             if (i % 2 == 1) {
                 // LED turns off
                 control.waitMicros(arr[i])
             } else {
                 // LED flashes at 38 kHz cycle
-                for (let i0 = 0; i0 < arr[i] / 26; i0++) {
-                    pins.analogSetPeriod(AnalogPin.P0, 2)
+                time = input.runningTimeMicros()
+                pins.analogWritePin(AnalogPin.P0, 512)
+                pins.analogSetPeriod(AnalogPin.P0, 26.3)
+                if (input.runningTimeMicros() - time > arr[i]) {
+                    pins.analogWritePin(AnalogPin.P0, 0)
                 }
             }
         }
