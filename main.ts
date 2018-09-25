@@ -22,7 +22,7 @@ namespace infrared {
             }
         }
     }
-    //% blockId=on block="OFF"
+    //% blockId=off block="OFF"
     export function off(): void {
         for (let i = 0, r = 0; i <= arr2.length - 1; i++) {
             // Generate flashing signal
