@@ -15,7 +15,7 @@ namespace infrared {
                 r = arr[i]
                 while (r > 26) {
                     pins.digitalWritePin(DigitalPin.P0, 1)
-                    control.waitMicros(2)
+                    control.waitMicros(1.5)
                     pins.digitalWritePin(DigitalPin.P0, 0)
                     r = r - 26
                 }
