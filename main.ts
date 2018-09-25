@@ -12,12 +12,8 @@ namespace infrared {
                 control.waitMicros(arr[i])
             } else {
                 // LED flashes at 38 kHz cycle
-                r = arr[i]
-                while (r > 26) {
-                    pins.digitalWritePin(DigitalPin.P0, 1)
-                    control.waitMicros(1)
-                    pins.digitalWritePin(DigitalPin.P0, 0)
-                    r = r - 26
+                for (let i0 = 0; i0 < arr[i] / 26; i0++) {
+                    pins.analogSetPeriod(AnalogPin.P0, 2)
                 }
             }
         }
