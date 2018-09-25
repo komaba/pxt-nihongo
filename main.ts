@@ -21,6 +21,7 @@ namespace infrared {
                 }
             }
         }
+        basic.showString("ON")
     }
     //% blockId=off block="OFF"
     export function off(): void {
@@ -40,5 +41,6 @@ namespace infrared {
                 }
             }
         }
+        basic.showString("OFF")
     }
 }
