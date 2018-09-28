@@ -1,4 +1,4 @@
-//% weight=70 icon="\uf1e6" color=#DF013A block="赤外線"
+//% weight=70 icon="\uf1e6" color=#FF0000 block="赤外線"
 namespace infrared {
     let scroll: number
     const arr = [2550, 2550, 850, 850, 850, 850, 850, 1912, 850, 1912, 850, 1912, 850, 1912, 850, 850, 850, 850, 850]
